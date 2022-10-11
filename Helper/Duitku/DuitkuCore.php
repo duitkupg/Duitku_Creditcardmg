@@ -1,5 +1,7 @@
 <?php
-include_once('ApiRequestor.php');
+namespace Duitku\Creditcardmg\Helper\Duitku;
+// include_once('ApiRequestor.php');
+use Duitku\Creditcardmg\Helper\Duitku\Duitku_Creditcardmg_ApiRequestor;
 class Duitku_Creditcardmg_Core {
 
   public static function getRedirectionUrl($baseUrl, $params)

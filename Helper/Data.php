@@ -14,10 +14,10 @@
  */
 
 namespace Duitku\Creditcardmg\Helper;
-include_once('Duitku/ApiRequestor.php');
-include_once('Duitku/DuitkuCore.php');
+// include_once('Duitku/ApiRequestor.php');
+// include_once('Duitku/DuitkuCore.php');
 use Duitku\Creditcardmg\Helper\DuitkuConstants;
-use Duitku_Creditcardmg_Core;
+use Duitku\Creditcardmg\Helper\Duitku\Duitku_Creditcardmg_Core;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
