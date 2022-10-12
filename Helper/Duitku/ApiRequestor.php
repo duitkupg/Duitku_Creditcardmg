@@ -1,5 +1,4 @@
 <?php
-namespace Duitku\Creditcardmg\Helper\Duitku;
 
 class Duitku_Creditcardmg_ApiRequestor {
 
