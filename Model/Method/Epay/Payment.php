@@ -101,12 +101,12 @@ class Payment extends \Duitku\Creditcardmg\Model\Method\AbstractPayment
 		$itemDetailParams = array();
 		foreach ($itemsData as $value) {
 			
-		  $ItemPrice = (int)$value->getPrice() * (int)$value->getQtyOrdered();
+		  $ItemPrice = $value->getPrice() * ceil($value->getQtyOrdered());
 		  
 		  $item = array(
 			'name' => $this->repString($this->getName($value->getName())),
-			'price' => (int)$ItemPrice,
-			'quantity' => (int)$value->getQtyOrdered(),
+			'price' => ceil($ItemPrice),
+			'quantity' => ceil($value->getQtyOrdered()),
 		  );
 		  $itemDetailParams[] = $item;
 		}
@@ -114,7 +114,7 @@ class Payment extends \Duitku\Creditcardmg\Model\Method\AbstractPayment
 		if ($shippingAmountData > 0) {
 		  $shippingItem = array(
 			'name' => 'Shipping Amount',
-			'price' => (int)$shippingAmountData,
+			'price' => ceil($shippingAmountData),
 			'quantity' => 1
 		  );
 		  $itemDetailParams[] = $shippingItem;
@@ -123,7 +123,7 @@ class Payment extends \Duitku\Creditcardmg\Model\Method\AbstractPayment
 		if ($shippingTaxAmountData > 0) {
 		  $shippingTaxItem = array(
 			'name' => 'Shipping Tax',
-			'price' => (int)$shippingTaxAmountData,
+			'price' => ceil($shippingTaxAmountData),
 			'quantity' => 1
 		  );
 		  $itemDetailParams[] = $shippingTaxItem;
@@ -132,7 +132,7 @@ class Payment extends \Duitku\Creditcardmg\Model\Method\AbstractPayment
 		if ($taxAmountData > 0) {
 		  $taxItem = array(
 			'name' => 'Tax',
-			'price' => (int)$taxAmountData,
+			'price' => ceil($taxAmountData),
 			'quantity' => 1
 		  );
 		  $itemDetailParams[] = $taxItem;
@@ -141,7 +141,7 @@ class Payment extends \Duitku\Creditcardmg\Model\Method\AbstractPayment
 		if ($DiscountAmount != 0) {
 		  $couponItem = array(
 			  'id' => 'DISCOUNT',
-			  'price' => (int)$DiscountAmount,
+			  'price' => floor($DiscountAmount),
 			  'quantity' => 1,
 			  'name' => 'DISCOUNT'
 			);
